@@ -64,6 +64,17 @@ DESCRIPTION
     elapsed, will trigger reset so that Arduino program clearly starts all
     over again.
 
+METHODS
+
+ bool check()
+
+    Returns true/false if the interval elapset.
+
+ void reset(bool postpone = true)
+
+    Will reset the time to count from current moment in until interval. If
+    postpone is set to false, check() will return true with next call.
+
 INSTALL
 
         git clone https://github.com/jozef/Arduino-UpTime sketchbook/libraries/UpTime

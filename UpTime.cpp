@@ -20,7 +20,7 @@ unsigned long uptime() {
 }
 
 uptime_interval::uptime_interval(unsigned int inte, bool postpone) : interval(inte) {
-    next = (postpone ? _uptime_seconds + inte : _uptime_seconds);
+    reset(postpone);
 }
 
 bool uptime_interval::check() {
@@ -29,6 +29,10 @@ bool uptime_interval::check() {
         return true;
     }
     return false;
+}
+
+void uptime_interval::reset(bool postpone) {
+    next = (postpone ? _uptime_seconds + interval : _uptime_seconds);
 }
 
 String _uptime_two_dig(uint8_t x) {

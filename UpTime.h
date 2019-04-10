@@ -14,6 +14,7 @@ class uptime_interval {
     public:
         uptime_interval(unsigned int inte, bool postpone = true);
         bool check();
+        void reset(bool postpone = true);
 };
 
 #endif
@@ -84,6 +85,17 @@ or check() functions has to be called at least once for 0xFFFF seconds
 millis() overrun and the seconds of unsigned long are enough to not overrun
 sooner then in 136+ years. Once 0xFFFF0000 seconds is elapsed, will trigger
 reset so that Arduino program clearly starts all over again.
+
+=head1 METHODS
+
+=head2 bool check()
+
+Returns true/false if the interval elapset.
+
+=head2 void reset(bool postpone = true)
+
+Will reset the time to count from current moment in until interval. If
+C<postpone> is set to false, check() will return true with next call.
 
 =head1 INSTALL
 
