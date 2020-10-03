@@ -32,6 +32,7 @@ bool uptime_interval::check() {
 }
 
 void uptime_interval::reset(bool postpone) {
+    uptime();
     next = (postpone ? _uptime_seconds + interval : _uptime_seconds);
 }
 
